@@ -2,13 +2,6 @@ import type { Metadata } from "next"
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Schoolbell } from 'next/font/google';
-
-const schoolbell = Schoolbell({ 
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: "Our Wedding",
@@ -23,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={schoolbell.className}
+        className={"kids-font"}
       >
         <Navigation />
         <main className="min-h-screen">
