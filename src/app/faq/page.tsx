@@ -84,8 +84,8 @@ export default function FAQ() {
 			{/* Hero */}
 			<section className="bg-gradient-to-br from-rose-50 to-pink-50 py-12">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-					<h1 className="text-4xl font-bold text-gray-900 mb-4">Questions Fréquemment Posées</h1>
-					<p className="text-lg text-gray-600">Tout ce que vous devez savoir sur notre mariage</p>
+					<h1 className="text-4xl font-bold text-gray-900 mb-4">Questions fréquentes</h1>
+					<p className="text-lg text-gray-600">Retrouvez ci-dessous la plus part des réponses à vos questions.</p>
 				</div>
 			</section>
 
@@ -110,7 +110,8 @@ export default function FAQ() {
 			{/* Contact Form Section */}
 			<section className="bg-gray-50 py-20">
 				<div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-					<h2 className="text-3xl font-bold mb-8 text-center">Vous avez une question ?</h2>
+					<h2 className="text-3xl font-bold mb-8 text-center">Une autre question ?</h2>
+					<p className="text-lg text-gray-600">Écrivez-nous dès maintenant à l’aide de ce formulaire !</p>
 					
 					{submitted ? (
 						<div className="bg-green-50 border-2 border-green-200 rounded-lg p-8 text-center">
@@ -123,7 +124,7 @@ export default function FAQ() {
 							{/* Nom */}
 							<div>
 								<label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
-									Nom *
+									Votre nom :
 								</label>
 								<input
 									type="text"
@@ -133,14 +134,14 @@ export default function FAQ() {
 									onChange={handleContactChange}
 									required
 									className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
-									placeholder="Votre nom"
+									placeholder="Ex: Sanchez Camille"
 								/>
 							</div>
 
 							{/* Email */}
 							<div>
 								<label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-									Email *
+									Votre e-mail :
 								</label>
 								<input
 									type="email"
@@ -150,14 +151,14 @@ export default function FAQ() {
 									onChange={handleContactChange}
 									required
 									className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
-									placeholder="Votre email"
+									placeholder="Ex: camille.sanchez@email.com"
 								/>
 							</div>
 
 							{/* Question */}
 							<div>
 								<label htmlFor="question" className="block text-sm font-semibold text-gray-900 mb-2">
-									Votre question *
+									Votre question :
 								</label>
 								<textarea
 									id="question"
@@ -167,7 +168,7 @@ export default function FAQ() {
 									required
 									rows={4}
 									className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
-									placeholder="Posez votre question ici..."
+									placeholder="Ecrivez votre question ici..."
 								/>
 							</div>
 
