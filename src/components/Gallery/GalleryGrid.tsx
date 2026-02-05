@@ -19,8 +19,12 @@ export default function GalleryGrid({ images, onImageClick }: GalleryGridProps) 
           onClick={() => onImageClick(image)}
           className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition cursor-pointer"
         >
-          <div className="bg-gradient-to-br from-rose-300 to-pink-300 h-64 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300">
-            📷
+          <div className="h-64 w-full bg-gray-100 overflow-hidden">
+            <img
+              src={image.url}
+              alt={image.title}
+              className="object-cover w-full h-64 group-hover:scale-105 transition-transform duration-300"
+            />
           </div>
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-end justify-start p-4">
             <div className="opacity-0 group-hover:opacity-100 transition text-white">

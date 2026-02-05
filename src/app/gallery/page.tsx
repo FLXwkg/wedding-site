@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import GalleryGrid from '@/components/Gallery/GalleryGrid';
 import ImageModal from '@/components/Gallery/ImageModal';
+import AddPhotoBox from '@/components/Gallery/AddPhotoBox';
 
 // Sample gallery images
 const galleryImages = [
@@ -15,22 +16,32 @@ const galleryImages = [
 ];
 
 export default function Gallery() {
+  const [images, setImages] = useState(galleryImages);
   const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
+
+  const handleUpload = (url: string) => {
+    const name = url.split('/').pop() || `upload-${Date.now()}`;
+    const id = Date.now();
+    const newImage = { id, title: name, description: '', url };
+    setImages((prev) => [newImage, ...prev]);
+  };
 
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-rose-50 to-pink-50 py-12">
+      <section className="bg-gray-100 py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Wedding Gallery</h1>
-          <p className="text-lg text-gray-600">Moments leading up to our big day</p>
+          <h2 className="text-3xl font-normal text-gray-900 mb-4">PARTAGEZ VOS PHOTOS</h2>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-4">
+          <AddPhotoBox onUpload={handleUpload} />
         </div>
       </section>
 
       {/* Gallery Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <GalleryGrid images={galleryImages} onImageClick={setSelectedImage} />
+          <GalleryGrid images={images} onImageClick={setSelectedImage} />
         </div>
       </section>
 
