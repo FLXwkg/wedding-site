@@ -36,3 +36,8 @@ body {
   color: var(--foreground);
   font-family: 'Kids', 'Comic Sans MS', cursive;
 }
+
+.faq-card {
+  border: 4px dashed;
+  border-radius: 30px;
+}
