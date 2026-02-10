@@ -1,8 +1,7 @@
 import CustomHrLine from "@/components/CustomHrLine";
-import illustrationCouple from "@/components/images/dessin-mariage.png";
+import Mariés from "@/components/images/Mariés";
 import ConfirmPresenceButton from "@/components/navigation/ConfirmPresenceButton";
 import InfoProgramme from "@/components/navigation/InfoProgramme";
-import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -22,12 +21,8 @@ export default function Home() {
           
           {/* SVG Illustration couple - PLACEHOLDER */}
           <div className="flex justify-center">
-            <Image
-                  src={illustrationCouple}
-                  width={500}
-                  height={500}
-                  alt="Picture of the author"
-                />          </div>
+            <Mariés/>
+          </div>
           
           {/* Boutons CTA */}
           <div className="flex flex-col items-center gap-2 mb-16">
