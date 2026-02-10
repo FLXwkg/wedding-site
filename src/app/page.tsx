@@ -1,9 +1,52 @@
+'use client';
+
 import CustomHrLine from "@/components/CustomHrLine";
 import Mariés from "@/components/images/Mariés";
 import ConfirmPresenceButton from "@/components/navigation/ConfirmPresenceButton";
 import InfoProgramme from "@/components/navigation/InfoProgramme";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [timeRemaining, setTimeRemaining] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+  const [isExpired, setIsExpired] = useState(false);
+
+  useEffect(() => {
+    // Date du mariage : 19 septembre 2026 à 14h
+    const weddingDate = new Date('2026-09-19T14:00:00').getTime();
+
+    const updateCountdown = () => {
+      const now = Date.now();
+      const distance = weddingDate - now;
+
+      if (distance > 0) {
+        setTimeRemaining({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+        setIsExpired(false);
+      } else {
+        setTimeRemaining({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setIsExpired(true);
+      }
+    };
+
+    // Mise à jour initiale
+    updateCountdown();
+
+    // Mise à jour toutes les secondes
+    const interval = setInterval(updateCountdown, 1000);
+
+    // Nettoyage
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div>
       {/* Hero Section */}
@@ -37,9 +80,36 @@ export default function Home() {
           </div>
           
           {/* Compte à rebours */}
-          <p className="font-schoolbell text-lg text-gray-700">
-            270 jours - 13 heures - 45 minutes
-          </p>
+          {!isExpired && (
+          <div className="font-schoolbell text-lg text-gray-700">
+            <p className="mb-2">Dans...</p>
+            <div className="flex justify-center gap-6 text-2xl md:text-3xl">
+              <div className="flex flex-col items-center">
+                <span className="font-bold text-4xl md:text-5xl" style={{ color: 'var(--palette-3)' }}>
+                  {timeRemaining.days}
+                </span>
+                <span className="text-sm md:text-base">jour{timeRemaining.days > 1 ? 's' : ''}</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="font-bold text-4xl md:text-5xl" style={{ color: 'var(--palette-1)' }}>
+                  {timeRemaining.hours}
+                </span>
+                <span className="text-sm md:text-base">heure{timeRemaining.hours > 1 ? 's' : ''}</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="font-bold text-4xl md:text-5xl" style={{ color: 'var(--palette-4)' }}>
+                  {timeRemaining.minutes}
+                </span>
+                <span className="text-sm md:text-base">minute{timeRemaining.minutes > 1 ? 's' : ''}</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="font-bold text-4xl md:text-5xl" style={{ color: 'var(--palette-2)' }}>
+                  {timeRemaining.seconds}
+                </span>
+                <span className="text-sm md:text-base">seconde{timeRemaining.seconds > 1 ? 's' : ''}</span>
+              </div>
+            </div>
+          </div>)}
         </div>
         <CustomHrLine/>
       </section>
