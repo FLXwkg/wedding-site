@@ -29,10 +29,16 @@ export default function AccordionItem({
       className="px-6 py-4 rounded-2xl faq-card"
       style={{
         color: borderColor,
+        borderSpacing: '10px',
+        gap: '10px',
+        borderWidth: '4px',
+        borderStyle: 'dashed',
+        borderRadius: '30px',
+        
       }}
     >
-      <h3 className="text-lg font-semibold text-gray-900 text-left mb-3">{question}</h3>
-      <p className="text-gray-700 leading-relaxed">{answer}</p>
+      <h3 className="text-lg text-gray-900 text-center mb-3">{question}</h3>
+      <p className="text-gray-500 leading-relaxed">{answer}</p>
     </div>
   );
 }
