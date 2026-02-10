@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gray-100 pb-20 pt-4">
+      <section className="pb-20 pt-4">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-16">
           {/* Titre principal */}
           <h1 className="font-schoolbell text-4xl md:text-5xl text-gray-900 mb-2">
@@ -77,7 +77,7 @@ export default function Home() {
       </section>
 
       {/* Location Section */}
-      <section className="bg-gray-50 py-20">
+      <section className="py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl text-black font-bold mb-8">Lieu du mariage</h2>
           <a className="text-black hover:text-rose-600 transition mb-6 inline-block" href="https://www.google.com/maps/dir/?api=1&destination=Domaine+les+3+Rivages" target="_blank" rel="noopener noreferrer">
