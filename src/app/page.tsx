@@ -1,14 +1,13 @@
 import CustomHrLine from "@/components/CustomHrLine";
-import illustrationCouple from "@/components/images/dessin-mariage.png";
+import Mariés from "@/components/images/Mariés";
 import ConfirmPresenceButton from "@/components/navigation/ConfirmPresenceButton";
 import InfoProgramme from "@/components/navigation/InfoProgramme";
-import Image from 'next/image'
 
 export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gray-100 pb-20 pt-4">
+      <section className="pb-20 pt-4">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-16">
           {/* Titre principal */}
           <h1 className="font-schoolbell text-4xl md:text-5xl text-gray-900 mb-2">
@@ -22,12 +21,8 @@ export default function Home() {
           
           {/* SVG Illustration couple - PLACEHOLDER */}
           <div className="flex justify-center">
-            <Image
-                  src={illustrationCouple}
-                  width={500}
-                  height={500}
-                  alt="Picture of the author"
-                />          </div>
+            <Mariés/>
+          </div>
           
           {/* Boutons CTA */}
           <div className="flex flex-col items-center gap-2 mb-16">
@@ -82,7 +77,7 @@ export default function Home() {
       </section>
 
       {/* Location Section */}
-      <section className="bg-gray-50 py-20">
+      <section className="py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl text-black font-bold mb-8">Lieu du mariage</h2>
           <a className="text-black hover:text-rose-600 transition mb-6 inline-block" href="https://www.google.com/maps/dir/?api=1&destination=Domaine+les+3+Rivages" target="_blank" rel="noopener noreferrer">

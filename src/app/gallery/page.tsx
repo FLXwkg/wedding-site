@@ -29,7 +29,7 @@ export default function Gallery() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gray-100 py-10">
+      <section className="py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-normal text-gray-900 mb-4">PARTAGEZ VOS PHOTOS</h2>
         </div>
