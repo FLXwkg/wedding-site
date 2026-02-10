@@ -1,5 +1,6 @@
 'use client';
 import { useMemo } from 'react';
+import DashedBox from '../DashedBox';
 
 interface AccordionItemProps {
   id: number;
@@ -25,14 +26,9 @@ export default function AccordionItem({
   }, [id]);
 
   return (
-    <div
-      className="px-6 py-4 rounded-2xl faq-card"
-      style={{
-        color: borderColor,
-      }}
-    >
+    <DashedBox dashLength={25} gapLength={20} color={borderColor}>
       <h3 className="text-lg font-semibold text-gray-900 text-left mb-3">{question}</h3>
       <p className="text-gray-700 leading-relaxed">{answer}</p>
-    </div>
+    </DashedBox>
   );
 }

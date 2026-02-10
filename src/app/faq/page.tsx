@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import AccordionItem from '@/components/FAQ/AccordionItem';
+import DashedBox from '@/components/DashedBox';
 
 const faqs = [
 	{
@@ -99,8 +100,6 @@ export default function FAQ() {
 								id={faq.id}
 								question={faq.question}
 								answer={faq.answer}
-								isExpanded={expandedId === faq.id}
-								onToggle={() => setExpandedId(expandedId === faq.id ? null : faq.id)}
 							/>
 						))}
 					</div>
@@ -108,7 +107,7 @@ export default function FAQ() {
 			</section>
 
 			{/* Contact Form Section */}
-			<section className="bg-gray-50 py-20">
+			<section className="py-20">
 				<div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 					<h2 className="text-3xl font-bold mb-8 text-center">Une autre question ?</h2>
 					<p className="text-lg text-gray-600">Écrivez-nous dès maintenant à l’aide de ce formulaire !</p>
@@ -122,7 +121,7 @@ export default function FAQ() {
 					) : (
 						<form onSubmit={handleContactSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-6">
 							{/* Nom */}
-							<div>
+							<DashedBox dashLength={25} gapLength={20} color='var(--palette-1)'>
 								<label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
 									Votre nom :
 								</label>
@@ -136,7 +135,7 @@ export default function FAQ() {
 									className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-600 focus:border-transparent"
 									placeholder="Ex: Sanchez Camille"
 								/>
-							</div>
+							</DashedBox>
 
 							{/* Email */}
 							<div>
